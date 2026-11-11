@@ -9,6 +9,9 @@ copyright: "© 2026 Jailson Silva"
 theme:
   variant: modern
   language: pt-BR
+  font:
+    text: Inter
+    code: JetBrains Mono
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
