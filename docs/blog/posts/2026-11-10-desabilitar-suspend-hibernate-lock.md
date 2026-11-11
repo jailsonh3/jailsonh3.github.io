@@ -231,6 +231,40 @@ Para desfazer tudo: basta apagar o bloco `"general"` do `shell.json` (volta
 aos defaults do shell) e restaurar a linha `suspend-then-hibernate` no
 `variables.lua`.
 
+## Atualização (2026-11-11): tela preta após inatividade
+
+Depois dessa configuração, a máquina não suspendia mais — mas a **tela
+continuava ficando preta** após 5 minutos de ociosidade (a entrada
+`dpms off` / `dpms on`). Mesmo com `mouse_move_enables_dpms` e
+`key_press_enables_dpms` ativos no Hyprland, o retorno nem sempre acordava
+a tela de forma confiável no meu setup (Hyprland 0.57 + Caelestia-shell).
+
+Decisão: remover também o blanking automático, esvaziando a lista de
+timeouts:
+
+```json
+{
+    "general": {
+        "idle": {
+            "lockBeforeSleep": false,
+            "timeouts": []
+        },
+        "battery": {
+            "criticalLevel": 0
+        }
+    }
+}
+```
+
+Com `timeouts: []` não há mais nenhum monitor de inatividade do shell, então
+a tela não apaga, não trava e não suspende sozinha. O blanking manual continua
+disponível via Hyprland (`hyprctl dispatch dpms disable/enable`) e as teclas de
+brilho/monitor seguem funcionando.
+
+Para reativar o blanking no futuro, basta recriar a entrada em `timeouts`
+(com um `timeout` maior, por exemplo 900 ou 1800 segundos) e rodar
+`caelestia shell -r`.
+
 ## O que aprendi
 
 1. **"Não existe opção na interface" ≠ "não existe opção".** Aqui a opção
