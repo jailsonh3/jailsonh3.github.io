@@ -1,0 +1,14 @@
+# Build do Zensical
+site/
+
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editores e SO
+.DS_Store
+.idea/
+.vscode/
+*.swp

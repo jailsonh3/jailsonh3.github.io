@@ -1,0 +1,68 @@
+site_name: Diário de um Dev
+site_url: https://jailsonh3.github.io/
+site_description: >-
+  Bugs, soluções e curiosidades do dia a dia de quem programa: Linux, desktop
+  environment, redes, automação e as armadilhas que ninguém documenta.
+site_author: Jailson Silva
+copyright: "© 2026 Jailson Silva"
+
+theme:
+  variant: modern
+  language: pt-BR
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: lucide/moon
+        name: Modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: lucide/sun
+        name: Modo claro
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.tabs.link
+    - search.highlight
+    - search.suggest
+
+plugins:
+  - search
+  - blog:
+      blog_dir: blog
+  - tags
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Início: index.md
+  - Blog: blog/index.md
+  - Tags: tags.md
+  - Sobre: sobre.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jailsonh3
+      name: Jailson Silva no GitHub
